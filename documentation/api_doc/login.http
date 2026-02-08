@@ -1,0 +1,10 @@
+@authority = http://localhost:3000/api
+@route_name= login
+
+POST {{authority}}/{{route_name}}
+Content-Type: application/json
+
+{
+    "email": "yaitmou@gmail.com",
+    "password": "3You@8Ai"
+}

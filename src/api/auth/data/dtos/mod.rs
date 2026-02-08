@@ -1,0 +1,12 @@
+pub mod activate_account_dto;
+pub mod change_pwd_dto;
+pub mod delete_many_user_dto;
+pub mod delete_user_dto;
+pub mod forgot_pwd_dto;
+pub mod login_dto;
+pub mod logout_dto;
+pub mod register_dto;
+pub mod reset_pass_dto;
+pub mod send_token_dto;
+pub mod update_user_dto;
+pub mod user_response_dto;

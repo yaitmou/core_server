@@ -1,0 +1,3 @@
+pub mod activate_account_email_template;
+pub mod password_reset_email_template;
+pub mod reset_pwd_token_sent_template;
