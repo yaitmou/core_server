@@ -1,0 +1,9 @@
+POST {{authority}}/{{register}}
+Content-Type: application/json
+
+{
+    "email": "user_2@mail.com",
+    "first_name": "User 2",
+    "last_name": "User 2",
+    "password": "1Abc@2De"
+}

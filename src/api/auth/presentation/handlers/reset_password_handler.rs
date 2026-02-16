@@ -16,13 +16,13 @@ impl ResetPasswordHandler {
         Self { sl }
     }
 
-    async fn handle(&self, params: ResetPasswordDto) -> Result<impl Reply, Rejection> {
+    async fn handle(self: Arc<Self>, params: ResetPasswordDto) -> Result<impl Reply, Rejection> {
         let mut filter = HashMap::new();
         filter.insert("email".to_string(), params.email.clone());
 
         let mut user: User = self.sl.get_user().execute(filter).await?;
 
-        user.can_continue()?;
+        user.is_allowed()?;
         /* ········································································ [ Reset Pwd ] */
         user.re_set_pwd(params.new_password, params.token)?;
 

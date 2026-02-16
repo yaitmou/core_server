@@ -1,0 +1,7 @@
+
+POST {{authority}}/{{resend_activation_token}}
+Content-Type: application/json
+
+{
+    "email": "yaitmou80@gmail.com"
+}

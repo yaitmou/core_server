@@ -1,0 +1,9 @@
+@route_name= user
+
+DELETE  {{authority}}/{{route_name}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "user_id": "69638851cbee09645f4d1742"
+}

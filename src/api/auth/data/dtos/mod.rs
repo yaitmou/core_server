@@ -10,3 +10,5 @@ pub mod reset_pass_dto;
 pub mod send_token_dto;
 pub mod update_user_dto;
 pub mod user_response_dto;
+mod verify_reset_pwd_pin_dto;
+pub use verify_reset_pwd_pin_dto::*;

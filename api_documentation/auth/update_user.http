@@ -1,0 +1,8 @@
+PUT {{authority}}/{{user}}
+Content-Type: application/json
+Authorization: Bearer {{admin_token}}
+
+{
+    "id": "6982e7088cbd61a4fa2ecbf7",
+    "role": {"other": "OrgAdmin"}
+}

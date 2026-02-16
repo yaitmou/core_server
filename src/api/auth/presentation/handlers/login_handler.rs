@@ -35,7 +35,7 @@ impl LoginHandler {
         let mut user: User = match self.sl.get_user().execute(filter).await {
             Ok(result) => result,
             Err(_) => {
-                let msg = MsgBuilder::try_again("credentials");
+                let msg = MsgBuilder::custom("You have entered wrong credentials. Please verify your email and password and try again.");
                 let err = AppError::NotFound(msg);
                 return Err(warp::reject::custom(err));
             }
@@ -43,7 +43,7 @@ impl LoginHandler {
 
         /* ······························································ [ Is Password Correct ] */
         user.verify_pwd(params.password)?;
-        user.can_continue()?;
+        user.is_allowed()?;
         user.log_in();
 
         /* ······················································································ */

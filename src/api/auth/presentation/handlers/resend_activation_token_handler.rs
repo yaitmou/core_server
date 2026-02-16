@@ -30,7 +30,7 @@ impl ResendActivationTokenHandler {
             .send_activation_email(&user.email, &user.clone().activation_token.unwrap())
             .await?;
 
-        let msg = MsgBuilder::custom("An activation PIN was sent to your email");
+        let msg = MsgBuilder::custom("An account verification PIN was sent to your email");
         let response = ApiResponse::<()>::success(msg, None);
 
         Ok(warp::reply::with_status(

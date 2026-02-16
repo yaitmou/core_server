@@ -7,7 +7,7 @@ use async_trait::async_trait;
 
 use crate::{
     api::auth::domain::{entities::User, repositories::user_repository::UserRepository},
-    core::{AppError, UseCase},
+    core::{AppError, MsgBuilder, UseCase},
 };
 
 pub struct GetUser {
@@ -23,6 +23,17 @@ impl GetUser {
 #[async_trait]
 impl UseCase<HashMap<String, String>, User> for GetUser {
     async fn execute(&self, query: HashMap<String, String>) -> Result<User, AppError> {
-        self.repository.find_one(query).await
+        self.repository
+            .find_one(query)
+            .await
+            .map_err(|err| match err {
+                AppError::NotFound(_) => {
+                    let msg = MsgBuilder::custom("This account does not exist!");
+                    return AppError::NotFound(msg);
+                }
+                _ => {
+                    return err;
+                }
+            })
     }
 }

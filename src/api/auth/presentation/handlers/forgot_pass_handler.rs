@@ -23,7 +23,7 @@ impl ForgotPassHandler {
 
         let mut user: User = self.sl.get_user().execute(filter).await?;
 
-        user.can_continue()?;
+        user.is_allowed()?;
 
         /* ··························································· [ Update Reset Pwd Token ] */
         user.set_reset_pwd_token()?;

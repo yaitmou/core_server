@@ -33,3 +33,6 @@ pub use get_many_users_emails_handler::*;
 
 pub mod user_delete_many_handler;
 pub use user_delete_many_handler::*;
+
+mod verify_rest_pwd_token_handler;
+pub use verify_rest_pwd_token_handler::*;

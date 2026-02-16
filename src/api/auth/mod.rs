@@ -33,6 +33,7 @@ pub struct UserFeature {
     get_user_by_id_handler: Arc<GetUserByIdHandler>,
     /// [GET] /user
     get_many_users_handler: Arc<GetManyUsersHandler>,
+    verify_reset_pwd_token: Arc<VerifyResetPwdTokenHandler>,
 }
 
 impl UserFeature {
@@ -56,6 +57,7 @@ impl UserFeature {
             delete_many_users_handler: Arc::new(DeleteManyUserHandler::new(sl.clone())),
             get_many_users_handler: Arc::new(GetManyUsersHandler::new(sl.clone())),
             get_many_users_emails_handler: Arc::new(GetManyUsersEmailsHandler::new(sl.clone())),
+            verify_reset_pwd_token: Arc::new(VerifyResetPwdTokenHandler::new(sl.clone())),
         }
     }
 
@@ -87,5 +89,6 @@ impl UserFeature {
             .or(Arc::clone(&self.delete_user_handler).route(event_handler))
             // [DELETE] api/users
             .or(Arc::clone(&self.delete_many_users_handler).route())
+            .or(Arc::clone(&self.verify_reset_pwd_token).route())
     }
 }

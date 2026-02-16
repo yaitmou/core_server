@@ -37,7 +37,7 @@ impl ChangePwdHandler {
 
         let mut user: User = self.sl.get_user_by_id_usecase().execute(user_id).await?;
 
-        user.can_continue()?;
+        user.is_allowed()?;
 
         /* ·································································· [ Update Password ] */
         user.change_pwd(params.new_pwd, params.old_pwd)?;

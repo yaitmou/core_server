@@ -1,0 +1,13 @@
+@authority = http://localhost:3000/api
+@route_name= change-pwd
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNjk1YzA3NTk1MGExODc2MDJiZTVkYWMzIiwidXNlcl9yb2xlIjoiYXV0aGVudGljYXRlZCIsImV4cCI6MTc2NzY3Nzg5NiwiYXBpX2tleSI6bnVsbH0.ZRTdJfcbZcSvhWui59XAA9p9es960e_jcFkWseFYMQs
+POST {{authority}}/{{route_name}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "old_pwd": "3You@8Ai",
+    "new_pwd": "3You@8Ai"
+}
+
+

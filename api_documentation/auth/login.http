@@ -1,0 +1,54 @@
+### USER 1 LOGIN
+POST {{authority}}/{{login}}
+Content-Type: application/json
+
+{
+    "email": "yaitmou80@gmail.com",
+    "password": "1Abc@2De"
+}
+
+### USER 2 LOGIN
+POST {{authority}}/{{login}}
+Content-Type: application/json
+
+{
+    "email": "user_2@mail.com",
+    "password": "1Abc@2De"
+}
+
+### ADMIN LOGIN
+POST {{authority}}/{{login}}
+Content-Type: application/json
+
+{
+    "email": "admin@mail.com",
+    "password": "1Abc@2De"
+}
+
+###
+Success Response
+
+HTTP/1.1 200 OK
+content-type: application/json
+x-auth-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNjk3YjFhYmU3NTA1ODM2ZGY4NTlmNWY2IiwidXNlcl9yb2xlIjoiYXV0aGVudGljYXRlZCIsImZpcnN0X25hbWUiOiJZb3Vuc3MiLCJsYXN0X25hbWUiOiJBaXQgTW91IiwiZW1haWwiOiJ5YWl0bW91ODBAZ21haWwuY29tIiwiZXhwIjoxNzY5Njc5MjU3LCJhcGlfa2V5IjpudWxsfQ.sliP3pW1mgWTFQDBhOHkeAm-o7JAidtsQ88UaJL9wac
+connection: close
+content-length: 610
+date: Thu, 29 Jan 2026 08:34:17 GMT
+
+{
+  "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNjk3YjFhYmU3NTA1ODM2ZGY4NTlmNWY2IiwidXNlcl9yb2xlIjoiYXV0aGVudGljYXRlZCIsImZpcnN0X25hbWUiOiJZb3Vuc3MiLCJsYXN0X25hbWUiOiJBaXQgTW91IiwiZW1haWwiOiJ5YWl0bW91ODBAZ21haWwuY29tIiwiZXhwIjoxNzY5Njc5MjU3LCJhcGlfa2V5IjpudWxsfQ.sliP3pW1mgWTFQDBhOHkeAm-o7JAidtsQ88UaJL9wac",
+  "user": {
+    "id": "697b1abe7505836df859f5f6",
+    "email": "user@gmail.com",
+    "first_name": "first name",
+    "last_name": "last name",
+    "verified": true,
+    "role": "authenticated",
+    "reset_pwd_token": null,
+    "reset_pwd_count": 0,
+    "activation_token": null,
+    "activation_count": 0,
+    "is_logged_out": false,
+    "banned": false
+  }
+}

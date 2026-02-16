@@ -1,0 +1,11 @@
+@authority = http://localhost:3000/api
+@route_name= reset-password
+
+POST {{authority}}/{{route_name}}
+Content-Type: application/json
+
+{
+    "email": "yaitmou80@gmail.com",
+    "token":"331264",
+    "new_password": "3You@8Ai"
+}

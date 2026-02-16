@@ -1,0 +1,20 @@
+POST {{authority}}/{{activate_account}}
+Content-Type: application/json
+
+{
+    "email": "admin@mail.com",
+    "token": "906096"
+}
+
+###
+Success Response
+HTTP/1.1 200 OK
+content-type: application/json
+connection: close
+content-length: 92
+date: Thu, 29 Jan 2026 08:32:28 GMT
+
+{
+  "success": true,
+  "message": "Account Activated::Your account has been activated successfully"
+}

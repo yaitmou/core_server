@@ -46,7 +46,7 @@ impl User {
             created_at: now,
         }
     }
-    pub fn can_continue(&self) -> Result<(), AppError> {
+    pub fn is_allowed(&self) -> Result<(), AppError> {
         /* ································································· [ If User Verified ] */
         if !self.verified {
             let msg = MsgBuilder::custom("Your account has not been verified yet! To activate your account, please follow activation instructions sent to your email address");
@@ -76,7 +76,8 @@ impl User {
 
     pub fn set_activation_token(&mut self) -> Result<(), AppError> {
         if self.activation_count > MAX_RESEND_ATTEMPTS {
-            return Err(AppError::Forbidden(MsgBuilder::try_later()));
+            let msg = MsgBuilder::custom("Your account has been locked due to too many failed activation attempts. Please contact Customer Support to restore your access.");
+            return Err(AppError::Forbidden(msg));
         }
 
         self.activation_token = Some(TokenService::generate_token());
@@ -117,11 +118,16 @@ impl User {
         Ok(())
     }
 
-    pub fn re_set_pwd(&mut self, pwd: String, token: String) -> Result<(), AppError> {
+    pub fn verify_reset_pwd_token(&self, token: String) -> Result<(), AppError> {
         if self.reset_pwd_token != Some(token) {
-            let msg = MsgBuilder::try_again("reste pin");
+            let msg = MsgBuilder::try_again("reset pin");
             return Err(AppError::Forbidden(msg));
         }
+        Ok(())
+    }
+
+    pub fn re_set_pwd(&mut self, pwd: String, token: String) -> Result<(), AppError> {
+        self.verify_reset_pwd_token(token)?;
 
         self.set_pwd(pwd)?;
         self.reset_pwd_token = None;

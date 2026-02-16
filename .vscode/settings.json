@@ -1,3 +1,14 @@
 {
-  "cSpell.words": ["authmiddleware"]
+  "cSpell.words": ["authmiddleware"],
+  "rest-client.environmentVariables": {
+    "$shared": {},
+    "dev": {
+      "authority": "http://localhost:3000/api",
+      "login": "login",
+      "register": "register",
+      "forgot_pwd": "forgot-pwd",
+      "resend_activation_token": "resend-activation-token"
+      
+    },
+  }
 }
