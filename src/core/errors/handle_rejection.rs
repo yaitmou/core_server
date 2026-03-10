@@ -44,7 +44,7 @@ pub async fn handle_app_rejection(err: Rejection) -> Result<impl Reply, Rejectio
 
             _ => (
                 StatusCode::INTERNAL_SERVER_ERROR,
-                format!("unknown_error::Internal Server Error: {:?}", e),
+                format!("unknown::Internal Server Error: {:?}", e),
             ),
         }
     } else if let Some(e) = err.find::<warp::filters::body::BodyDeserializeError>() {
@@ -54,7 +54,7 @@ pub async fn handle_app_rejection(err: Rejection) -> Result<impl Reply, Rejectio
     } else {
         (
             StatusCode::INTERNAL_SERVER_ERROR,
-            format!("unknown_error::Internal Server Error: {:?}", err),
+            format!("unknown::Internal Server Error: {:?}", err),
         )
     };
 
