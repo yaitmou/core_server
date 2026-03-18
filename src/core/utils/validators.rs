@@ -101,7 +101,7 @@ impl Validators {
     }
 
     pub fn validate_object_id(id: &str) -> ValidatorsResult<ObjectId> {
-        let reason = format!("Invalid Object ID");
+        let reason = format!("Invalid Object ID {:?}", id);
         ObjectId::parse_str(id).map_err(|_| AppError::InvalidInput(reason))
     }
 

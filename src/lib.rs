@@ -72,9 +72,10 @@ impl CoreServer {
             .with(self.log_routes())
             .recover(handle_app_rejection);
 
-        let landing_page = warp::fs::dir("src/static");
+        // let landing_page = warp::fs::dir("src/static");
+        // warp::path("api").and(api_routes).or(landing_page)
 
-        warp::path("api").and(api_routes).or(landing_page)
+        warp::path("api").and(api_routes)
     }
 
     fn base_routes<E: CoreEventHandler + 'static>(

@@ -17,8 +17,8 @@ impl Config {
         /* ······································································ [ Development ] */
         if is_dev {
             Ok(Config {
-                database_uri_string: "mongodb://127.0.0.1:27017/dev_db".to_string(),
-                database_name: "dev_db".to_string(),
+                database_uri_string: "mongodb://127.0.0.1:27017/dev_db_aidoi".to_string(),
+                database_name: "dev_db_aidoi".to_string(),
                 jwt_secret: "1little_2_unsafe_jwt_123456_secret".to_string(),
                 jwt_expiration: 3600,
                 email_from: "no-reply@mail.com".to_string(),
